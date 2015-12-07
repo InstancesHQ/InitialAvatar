@@ -21,10 +21,10 @@ namespace InitialAvatar.Controllers
 
         [HttpGet]
         [Route("avatar/{initials}")]
-        public FileResult DownloadImage(string initials)
+        public FileResult DownloadImage(string initials, string color, int size = 120)
         {
             var manager = new DrawingManager();
-            return File(manager.DrawInitialAvatar(initials), "image/png");
+            return File(manager.DrawInitialAvatar(initials, size, color), "image/png");
         }
     }
 }
